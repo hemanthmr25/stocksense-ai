@@ -182,43 +182,9 @@ if st.button("🔍 Analyze Stock"):
                     st.write("-", h)
             else:
                 st.info("No recent company-specific news found.")
-                            # ==========================================
-            # 💼 PORTFOLIO TRACKER (FIXED)
-            # ==========================================
-            st.markdown("---")
-            st.header("💼 Portfolio Tracker")
-
-            col1, col2 = st.columns(2)
-
-            with col1:
-                buy_price = st.number_input("Buy Price ₹", min_value=0.0)
-
-            with col2:
-                qty = st.number_input("Quantity", min_value=1, step=1)
-
-            if st.button("Calculate Profit/Loss"):
-                live_price = float(df["Close"].iloc[-1])
-
-                invested = buy_price * qty
-                current_val = live_price * qty
-                profit = current_val - invested
-                percent = (profit / invested) * 100 if invested > 0 else 0
-
-                st.subheader("📊 Portfolio Result")
-
-                c1, c2, c3 = st.columns(3)
-                c1.metric("Current Price", f"₹{round(live_price,2)}")
-                c2.metric("Invested", f"₹{round(invested,2)}")
-                c3.metric("Current Value", f"₹{round(current_val,2)}")
-
-                if profit >= 0:
-                    st.success(f"Profit: ₹{round(profit,2)} ({round(percent,2)}%)")
-                else:
-                    st.error(f"Loss: ₹{round(profit,2)} ({round(percent,2)}%)")
-
-           
-      
+            
         except Exception as e:
                 st.error("⚠️ Something went wrong while analyzing the stock.")
                 st.write("Debug info:", e)
+
 
