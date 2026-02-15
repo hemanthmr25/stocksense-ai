@@ -1,9 +1,12 @@
+streamlit
 yfinance
 pandas
 numpy
+matplotlib
 scikit-learn
 ta
+feedparser
 vaderSentiment
-nltk
-matplotlib
-backtrader
+requests
+beautifulsoup4
+
